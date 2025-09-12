@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
             Get In <span className="text-gradient-primary">Touch</span>
           </h2>
           <p className="text-xl text-gray-300 professional-body max-w-3xl mx-auto">
-            Ready to collaborate or have a project in mind? Let's discuss how we can work together 
+            Ready to collaborate or have a project in mind? Let&apos;s discuss how we can work together 
             to bring your ideas to life.
           </p>
         </div>
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
           {/* Contact Details */}
           <div className="space-y-8">
             <h3 className="text-3xl font-bold text-white mb-8 professional-subheading">
-              Let's Connect
+              Let&apos;s Connect
             </h3>
             
             <motion.div 
