@@ -61,7 +61,7 @@ const Home: React.FC = () => {
             className="space-y-2"
           >
             <div className="text-2xl sm:text-3xl text-white font-medium">
-              Hi, I'm
+              Hi, I&apos;m
             </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-blue-400">
               Nitesh Pandey
