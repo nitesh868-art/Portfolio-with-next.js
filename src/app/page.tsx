@@ -1,103 +1,143 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Download, Mail, Github, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const Home: React.FC = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative flex flex-col items-center justify-center text-center px-6 py-20 min-h-[90vh] section-transparent overflow-hidden"
+    >
+      <div
+        className="z-10 flex flex-col items-center gap-8 max-w-4xl glass-card p-10 card-hover-effect"
+        onMouseMove={e => {
+          const card = e.currentTarget;
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--x', `${x}%`);
+          card.style.setProperty('--y', `${y}%`);
+        }}
+        onMouseLeave={e => {
+          const card = e.currentTarget;
+          card.style.setProperty('--x', '50%');
+          card.style.setProperty('--y', '50%');
+        }}
+      >
+        <div className="glass-spotlight" />
+        
+        {/* Profile Image */}
+        <motion.div
+          initial={{ scale: 0, rotate: -180 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 }}
+          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl hover:brightness-110 transition-all duration-500"
+        >
+          <Image
+            src="/assets/profile.png"
+            alt="Nitesh Pandey - Software Developer"
+            width={144}
+            height={144}
+            className="w-full h-full object-cover"
+            priority
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+          />
+        </motion.div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Name and Title */}
+        <div className="space-y-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-2"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="text-2xl sm:text-3xl text-white font-medium">
+              Hi, I'm
+            </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-blue-400">
+              Nitesh Pandey
+            </h1>
+            <div className="text-xl sm:text-2xl text-white font-medium">
+              React.js Enthusiast
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Bio */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="max-w-3xl text-lg sm:text-xl text-gray-300 leading-relaxed text-center"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Passionate about building clean, fast, and responsive web interfaces.
+          Skilled in React.js, Tailwind CSS, and modern frontend tools. Always eager
+          to learn and grow in the full-stack world.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-8 flex flex-col sm:flex-row gap-6 items-center"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          {/* Resume Download */}
+          <a
+            href="/my_resume.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 btn-hover-effect font-semibold text-lg hover:brightness-110"
+          >
+            <Download className="w-5 h-5" />
+            Download Resume
+          </a>
+
+          {/* Contact */}
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 border-2 border-blue-500 text-blue-400 px-8 py-4 rounded-full hover:bg-blue-900/20 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 btn-hover-effect font-semibold text-lg hover:brightness-110"
+          >
+            <Mail className="w-5 h-5" />
+            Contact Me
+          </Link>
+        </motion.div>
+
+        {/* Social Icons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-8 flex gap-8"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <a
+            href="https://github.com/nitesh868-art"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="professional-social"
+          >
+            <Github className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nitesh-pandey-901b07331/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="professional-social"
+          >
+            <Linkedin className="w-6 h-6" />
+          </a>
+        </motion.div>
+      </div>
+    </motion.section>
   );
-}
+};
+
+export default Home;

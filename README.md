@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nitesh Pandey - Portfolio (Next.js Version)
+
+A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+- 🎨 **Modern Design**: Clean, professional design with glass morphism effects
+- 🌙 **Dark Mode**: Always-on dark theme for better user experience
+- ⚡ **Fast Performance**: Built with Next.js 15 and optimized for speed
+- 📱 **Responsive**: Fully responsive design that works on all devices
+- ✨ **Animations**: Smooth animations powered by Framer Motion
+- 🎯 **TypeScript**: Full TypeScript support for better development experience
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Typing Animation**: React Typed
+
+## Pages
+
+- **Home**: Landing page with introduction and social links
+- **About**: Personal information and expertise areas
+- **Skills**: Interactive skills showcase with filtering
+- **Projects**: Portfolio projects with live demo and GitHub links
+- **Contact**: Contact form and contact information
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000) (or the port shown in terminal)
+
+## Project Structure
+
+```
+port-folio/
+├── src/
+│   ├── app/
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   ├── skills/
+│   │   │   └── page.tsx
+│   │   ├── projects/
+│   │   │   └── page.tsx
+│   │   ├── contact/
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── globals.css
+│   └── components/
+│       ├── Header.tsx
+│       ├── Navbar.tsx
+│       ├── Footer.tsx
+│       └── StarBackground.tsx
+├── public/
+│   ├── assets/
+│   │   └── pic.jpg
+│   └── my_resume.pdf
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Personal Information
+Update the following files with your information:
+- `src/app/page.tsx` - Home page content
+- `src/app/about/page.tsx` - About page content
+- `src/app/contact/page.tsx` - Contact information
+- `src/components/Header.tsx` - Header name and title
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Skills
+Edit the skills array in `src/app/skills/page.tsx` to match your skillset.
 
-## Learn More
+### Projects
+Update the projects array in `src/app/projects/page.tsx` with your projects.
 
-To learn more about Next.js, take a look at the following resources:
+### Styling
+Modify `src/app/globals.css` and `tailwind.config.ts` for custom styling.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project can be easily deployed to Vercel, Netlify, or any other hosting platform that supports Next.js.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).
