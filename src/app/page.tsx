@@ -1,12 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Download, Mail, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ImageModal from '@/components/ImageModal';
 
 const Home: React.FC = () => {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -37,7 +40,9 @@ const Home: React.FC = () => {
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 }}
-          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl hover:brightness-110 transition-all duration-500"
+          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl hover:brightness-110 transition-all duration-500 cursor-pointer hover:scale-105"
+          onClick={() => setIsImageModalOpen(true)}
+          title="Click to enlarge"
         >
           <Image
             src="/assets/profile.png"
@@ -136,6 +141,16 @@ const Home: React.FC = () => {
           </a>
         </motion.div>
       </div>
+      
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        src="/assets/profile.png"
+        alt="Nitesh Pandey - Software Developer"
+        width={800}
+        height={800}
+      />
     </motion.section>
   );
 };
